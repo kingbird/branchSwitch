@@ -32,9 +32,6 @@
       "js": ["page.js"]
     }
   ],
-  "background": {
-    "scripts": ["background.js"]
-  },
   "permissions": ["tabs", "cookies", "*://*.qidian.qq.com/*"],
   "browser_action": {
     "default_title": "Time to current page",

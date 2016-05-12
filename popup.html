@@ -7,17 +7,19 @@
     margin:0;
     padding:0;
   }
+  li {
+    list-style: none;
+  }
   .mod-switch {
-    width:200px;
     font-size:16px;
-    padding:10px;
+    padding:15px;
   }
   .mod-switch li {
     font-size:18px;
-    width:200px;
+    width:160px;
     margin-top:10px;
-    text-indent: 20px;
-    line-height:32px;
+    padding:0 15px;
+    line-height:36px;
     background-color:#DADEE7;
     border-radius: 5px;
     cursor: pointer;
@@ -28,11 +30,15 @@
     background-color:#0067ED;
     color:#fff;
   }
+  .mod-switch .error {
+    color:red;
+    font-size:14px;
+  }
 </style>
 </head>
 <body>
   <div class="mod-switch">
-    <p>请选择分支：</p>
+    <p>请选择分支：<span class="error"></span></p>
     <ul>
       <li>trunk</li>
       <li>release</li>

@@ -2,18 +2,14 @@
   "name": "Branch Switch",
   "version": "0.1",
   "description": "Easy to switch branch.",
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "js": ["page.js"]
-    }
-  ],
   "permissions": ["tabs", "cookies", "*://*.qidian.qq.com/*"],
   "browser_action": {
     "default_title": "Easy to switch branch.",
-    "default_icon": "clock.png",
     "default_popup": "popup.html"
   },
+  "icons": { "16": "icon16.png",
+           "48": "icon48.png",
+          "128": "icon128.png" },
   "manifest_version": 2,
   "homepage_url": "http://www.kingbird.me/"
 }

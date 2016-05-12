@@ -10,9 +10,6 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         } else {
             $('.mod-switch').find('li').eq(0).addClass('current');
         }
-        // chrome.tabs.sendMessage(tabs[0].id, {greeting: cookie.value}, function(response) {
-        //     console.log(response);
-        // });
     });
     $('.mod-switch').find('li').on('click', function() {
         if(!$(this).hasClass('current')) {
@@ -21,10 +18,8 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 expireTime = (+new Date() + (60 * 60 * 24 * 7 * 1000)) / 1000;
             if(branchName != 'trunk') {
                 chrome.cookies.set({url: tabs[0].url, name: 'version', path: '/', value: branchName, expirationDate: expireTime}, function(ret) {
-                    // chrome.tabs.sendMessage(tabs[0].id, {greeting: ret}, function(response) {
-                    //     console.log(response);
-                    // });
                     if(ret) {
+                        $('.error').text('');
                         $('.mod-switch').find('li').removeClass('current');
                         self.addClass('current');
                         if(branchName != 'release') {
@@ -33,20 +28,18 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                             chrome.browserAction.setBadgeText({text: 'R'});
                         }
                     } else {
-                        console.log('error');
+                        $('.error').text('切换失败');
                     }
                 });
             } else {
                 chrome.cookies.remove({url: tabs[0].url, name: 'version'}, function(ret) {
-                    // chrome.tabs.sendMessage(tabs[0].id, {greeting: ret}, function(response) {
-                    //     console.log(response);
-                    // });
                     if(ret) {
+                        $('.error').text('');
                         $('.mod-switch').find('li').removeClass('current');
                         self.addClass('current');
                         chrome.browserAction.setBadgeText({text: 'T'});
                     } else {
-                        console.log('error');
+                        $('.error').text('切换失败');
                     }
                 });
             }

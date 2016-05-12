@@ -1,25 +1,49 @@
+<!DOCTYPE HTML>
+<html>
 <head>
+  <meta charset="UTF-8">
 <style>
-tr {
-  white-space: nowrap;
-}
-.results {
-  text-align: right;
-  min-width: 6em;
-  color: black;
-}
+  * {
+    margin:0;
+    padding:0;
+  }
+  .mod-switch {
+    width:200px;
+    font-size:16px;
+    padding:10px;
+  }
+  .mod-switch li {
+    font-size:18px;
+    width:200px;
+    margin-top:10px;
+    text-indent: 20px;
+    line-height:32px;
+    background-color:#DADEE7;
+    border-radius: 5px;
+    cursor: pointer;
+    color:#000;
+  }
+  .mod-switch li.current {
+    cursor: default;
+    background-color:#0067ED;
+    color:#fff;
+  }
 </style>
-<script src="popup.js"></script>
 </head>
 <body>
-<table>
-  <tr>
-    <td><button id="testRequest">Measure sendRequest</button></td>
-    <td id="resultsRequest" class="results">(results)</td>
-  </tr>
-  <tr>
-    <td><button id="testConnect">Measure postMessage</button></td>
-    <td id="resultsConnect" class="results">(results)</td>
-  </tr>
-</table>
+  <div class="mod-switch">
+    <p>请选择分支：</p>
+    <ul>
+      <li>trunk</li>
+      <li>release</li>
+      <li>qidian_branch_a</li>
+      <li>qidian_branch_b</li>
+      <li>qidian_branch_c</li>
+      <li>qidian_branch_d</li>
+      <li>qidian_branch_e</li>
+    </ul>
+  </div>
+<script src="jquery.js"></script>
+<script src="popup.js"></script>
 </body>
+</html>
